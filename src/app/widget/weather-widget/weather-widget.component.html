@@ -2,9 +2,7 @@
   <div *ngIf="dailyWeatherInfo$ | async as dailyWeatherInfo">
     <div class="weather-widget-content">
       <fa-icon [icon]="faCloudSunRain" [size]="'4x'"></fa-icon>
-
       <strong>{{dailyWeatherInfo.avgTemp}} {{dailyWeatherInfo.tempUnit}}</strong>
-
     </div>
   </div>
 

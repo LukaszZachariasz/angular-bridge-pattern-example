@@ -1,12 +1,17 @@
-<div *ngIf="dailyNews$ | async as dailyNews">
-  <div *ngFor="let news of dailyNews" class="news-container">
+<ng-container *ngIf="!(isLoading$ | async)">
+  <div *ngIf="dailyNews$ | async as dailyNews">
+    <div *ngFor="let news of dailyNews"
+          class="news-container">
+      <strong>{{news.title}}</strong>
+      <p>{{news.description}}</p>
+    </div>
 
-    <strong>{{news.title}}</strong>
-    <p>{{news.description}}</p>
-
+    <ng-container *ngIf="dailyNews.length === 0">
+      <strong>No news, please reload</strong>
+    </ng-container>
   </div>
-</div>
+</ng-container>
 
-<div *ngIf="!(dailyNews$ | async)">
-  <div class="news-loader"></div>
+<div *ngIf="isLoading$ | async">
+  <strong>Loading news...</strong>
 </div>

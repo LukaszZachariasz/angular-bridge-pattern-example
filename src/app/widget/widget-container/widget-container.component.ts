@@ -1,5 +1,11 @@
-import {Component, Input} from '@angular/core';
-import { faAmbulance, faArrowAltCircleDown, faArrowAltCircleRight, faArrowCircleDown, faReply, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {Component, ContentChild, InjectionToken, Input} from '@angular/core';
+import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
+
+export const WIDGET_INJECTION_TOKEN = new InjectionToken<Widget>('Widget token');
+
+export interface Widget {
+  reloadData: () => void;
+}
 
 @Component({
   selector: 'app-widget-container',
@@ -9,9 +15,11 @@ import { faAmbulance, faArrowAltCircleDown, faArrowAltCircleRight, faArrowCircle
 export class WidgetContainerComponent {
   public reloadIcon = faArrowCircleDown;
 
+  @ContentChild(WIDGET_INJECTION_TOKEN) public widget!: Widget
+
   @Input() headerTitle: string = ''
 
   public refreshData(): void {
-
+    this.widget.reloadData();
   }
 }
