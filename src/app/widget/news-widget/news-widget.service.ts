@@ -17,6 +17,14 @@ export class NewsWidgetService {
       {
         title: 'Angular 13!',
         description: 'Somebody tells me that this is the best framework'
+      },
+      {
+        title: 'Today news',
+        description: 'Finally new framework'
+      },
+      {
+        title: 'Best tech',
+        description: 'Today about new tech'
       }
     ])
   }

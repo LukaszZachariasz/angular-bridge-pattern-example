@@ -1,13 +1,9 @@
-<div class="header">
-  <h2>Test app</h2>
-</div>
-
 <div class="content">
-  <app-widget-container>
+  <app-widget-container [headerTitle]="'Fresh news'">
     <app-news-widget></app-news-widget>
   </app-widget-container>
 
-  <app-widget-container>
+  <app-widget-container [headerTitle]="'Kielce weather'">
     <app-weather-widget></app-weather-widget>
   </app-widget-container>
 </div>

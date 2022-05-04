@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {NewsWidgetService} from "./news-widget.service";
 import { NewsWidgetComponent } from './news-widget.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import { NewsWidgetComponent } from './news-widget.component';
     NewsWidgetComponent
   ],
   exports: [
-    NewsWidgetComponent
+    NewsWidgetComponent,
+    FontAwesomeModule
   ],
   imports: [
     CommonModule

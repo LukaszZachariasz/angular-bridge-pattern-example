@@ -1,7 +1,14 @@
-<div *ngIf="dailyWeatherInfo$ | async as dailyWeatherInfo">
-  {{dailyWeatherInfo.avgTemp}} {{dailyWeatherInfo.tempUnit}}
-</div>
+<div class="weather-widget-wrapper">
+  <div *ngIf="dailyWeatherInfo$ | async as dailyWeatherInfo">
+    <div class="weather-widget-content">
+      <fa-icon [icon]="faCloudSunRain" [size]="'4x'"></fa-icon>
 
-<div *ngIf="!(dailyWeatherInfo$ | async)">
-  Loading....
+      <strong>{{dailyWeatherInfo.avgTemp}} {{dailyWeatherInfo.tempUnit}}</strong>
+
+    </div>
+  </div>
+
+  <div *ngIf="!(dailyWeatherInfo$ | async)">
+    <div class="weather-loader"></div>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faCloudSunRain, faCoffee, faTemperatureLow } from '@fortawesome/free-solid-svg-icons';
 import {WeatherWidgetService} from "./weather-widget.service";
 
 @Component({
@@ -7,6 +8,8 @@ import {WeatherWidgetService} from "./weather-widget.service";
   styleUrls: ['./weather-widget.component.css']
 })
 export class WeatherWidgetComponent {
+  public faCloudSunRain = faCloudSunRain;
+
   public dailyWeatherInfo$ = this.weatherWidgetService.getDailyWeatherInfo();
 
   constructor(private weatherWidgetService: WeatherWidgetService) { }

@@ -1,9 +1,8 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
-import {WeatherWidgetModule} from "./widget/weather-widget/weather-widget.module";
-import {NewsWidgetModule} from "./widget/news-widget/news-widget.module";
 import {WidgetModule} from "./widget/widget.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,8 @@ import {WidgetModule} from "./widget/widget.module";
   ],
   imports: [
     BrowserModule,
-    WidgetModule
+    WidgetModule,
+    FontAwesomeModule
   ],
   bootstrap: [AppComponent]
 })

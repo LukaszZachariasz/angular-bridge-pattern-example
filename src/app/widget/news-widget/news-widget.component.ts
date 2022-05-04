@@ -8,6 +8,7 @@ import {NewsWidgetService} from "./news-widget.service";
 })
 export class NewsWidgetComponent {
   public dailyNews$ = this.newsWidgetService.getDailyNews();
+
   constructor(private newsWidgetService: NewsWidgetService) { }
 
 }

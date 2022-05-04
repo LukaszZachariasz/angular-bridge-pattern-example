@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {WeatherWidgetService} from "./weather-widget.service";
 import {WeatherWidgetComponent} from "./weather-widget.component";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import {WeatherWidgetComponent} from "./weather-widget.component";
     WeatherWidgetComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ],
   exports: [
     WeatherWidgetComponent
