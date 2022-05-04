@@ -1,0 +1,12 @@
+<div *ngIf="dailyNews$ | async as dailyNews">
+  <div *ngFor="let news of dailyNews" class="news-container">
+
+    <strong>{{news.title}}</strong>
+    <p>{{news.description}}</p>
+
+  </div>
+</div>
+
+<div *ngIf="!(dailyNews$ | async)">
+  Loading....
+</div>

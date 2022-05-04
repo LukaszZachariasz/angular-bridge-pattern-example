@@ -1,0 +1,13 @@
+.news-container {
+  padding: 10px;
+  background-color: lightyellow;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.news-container p,
+.news-container strong {
+  font-size: 10px;
+}

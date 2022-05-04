@@ -1,0 +1,13 @@
+.header, .content {
+  padding: 50px;
+}
+
+.header {
+  color: white;
+}
+
+.content {
+  display: inline-flex;
+  align-content: flex-start;
+  gap: 20px;
+}

@@ -1,0 +1,22 @@
+.widget-container {
+  height: 100px;
+  width: 100px;
+  display: block;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px rgba(66, 66, 66, 0.3);
+}
+
+.widget-header {
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-content: space-between;
+}
+
+.widget-content {
+  height: calc(100% - 20px);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+

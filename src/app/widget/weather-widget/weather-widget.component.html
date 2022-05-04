@@ -1,0 +1,7 @@
+<div *ngIf="dailyWeatherInfo$ | async as dailyWeatherInfo">
+  {{dailyWeatherInfo.avgTemp}} {{dailyWeatherInfo.tempUnit}}
+</div>
+
+<div *ngIf="!(dailyWeatherInfo$ | async)">
+  Loading....
+</div>
