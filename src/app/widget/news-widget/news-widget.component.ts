@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Widget, WIDGET_INJECTION_TOKEN } from '../widget-container/widget-container.component';
-import {NewsWidgetService} from "./news-widget.service";
+import { NewsWidgetService } from './news-widget.service';
 
 @Component({
   selector: 'app-news-widget',
@@ -9,7 +9,7 @@ import {NewsWidgetService} from "./news-widget.service";
   providers: [
     {
       provide: WIDGET_INJECTION_TOKEN,
-      useExisting: NewsWidgetComponent
+      useExisting: NewsWidgetComponent,
     }
   ]
 })
@@ -17,7 +17,7 @@ export class NewsWidgetComponent implements Widget {
   public dailyNews$ = this.newsWidgetService.dailyNews$;
   public isLoading$ = this.newsWidgetService.isNewsLoading$;
 
-  constructor(private newsWidgetService: NewsWidgetService) { }
+  constructor(private newsWidgetService: NewsWidgetService) {}
 
   public reloadData() {
     this.newsWidgetService.reloadData();

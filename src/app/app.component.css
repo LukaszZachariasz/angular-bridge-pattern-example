@@ -1,4 +1,5 @@
-.header, .content {
+.header,
+.content {
   padding: 50px;
 }
 
@@ -12,4 +13,3 @@
   align-content: flex-start;
   gap: 20px;
 }
-

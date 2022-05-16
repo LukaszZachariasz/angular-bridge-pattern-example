@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { faCloudSunRain, faCoffee, faTemperatureLow } from '@fortawesome/free-solid-svg-icons';
+import { faCloudSunRain } from '@fortawesome/free-solid-svg-icons';
 import { Widget, WIDGET_INJECTION_TOKEN } from '../widget-container/widget-container.component';
-import {WeatherWidgetService} from "./weather-widget.service";
+import { WeatherWidgetService } from './weather-widget.service';
 
 @Component({
   selector: 'app-weather-widget',
@@ -10,9 +10,9 @@ import {WeatherWidgetService} from "./weather-widget.service";
   providers: [
     {
       provide: WIDGET_INJECTION_TOKEN,
-      useExisting: WeatherWidgetComponent
-    }
-  ]
+      useExisting: WeatherWidgetComponent,
+    },
+  ],
 })
 export class WeatherWidgetComponent implements Widget {
   public faCloudSunRain = faCloudSunRain;
@@ -20,9 +20,10 @@ export class WeatherWidgetComponent implements Widget {
   public isWeatherLoading$ = this.weatherWidgetService.isWeatherLoading$;
   public dailyWeatherInfo$ = this.weatherWidgetService.weatherDailyInfo$;
 
-  constructor(private weatherWidgetService: WeatherWidgetService) { }
+  constructor(private weatherWidgetService: WeatherWidgetService) {}
 
   public reloadData() {
+    const aaa = 'asda';
     this.weatherWidgetService.loadDataFromApi();
   }
 }

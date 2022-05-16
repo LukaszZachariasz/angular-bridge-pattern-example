@@ -23,12 +23,12 @@
   cursor: pointer;
 }
 
-fa-icon {
+fa-icon:hover {
   color: gray;
 }
 
-fa-icon:hover {
-  color: red;
+fa-icon {
+  color: rgb(0, 146, 73);
 }
 
 .widget-content {
@@ -43,4 +43,3 @@ fa-icon:hover {
   align-items: baseline;
   justify-items: stretch;
 }
-
