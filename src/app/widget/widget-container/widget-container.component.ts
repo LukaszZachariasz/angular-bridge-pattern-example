@@ -1,25 +1,44 @@
-import { Component, ContentChild, InjectionToken, Input } from '@angular/core';
+import { Component, ContentChild, InjectionToken, Input, OnInit } from '@angular/core';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
-
-export const WIDGET_INJECTION_TOKEN = new InjectionToken<Widget>('Widget token');
-
-export interface Widget {
-  reloadData: () => void;
-}
+import { NewsWidgetComponent } from '../news-widget/news-widget.component';
+import { WeatherWidgetComponent } from '../weather-widget/weather-widget.component';
 
 @Component({
   selector: 'app-widget-container',
   templateUrl: './widget-container.component.html',
   styleUrls: ['./widget-container.component.css'],
 })
-export class WidgetContainerComponent {
+export class WidgetContainerComponent implements OnInit {
   public reloadIcon = faArrowCircleDown;
 
-  @ContentChild(WIDGET_INJECTION_TOKEN) public widget!: Widget;
+  @ContentChild(WeatherWidgetComponent)
+  public weatherWidget!: WeatherWidgetComponent;
+
+  @ContentChild(NewsWidgetComponent)
+  public newsWidget!: NewsWidgetComponent;
 
   @Input() headerTitle: string = '';
 
+  public ngOnInit(): void {
+    //preloading something?
+
+    if (this.weatherWidget) {
+      this.weatherWidget.preloadSomething;
+    }
+  }
+
   public refreshData(): void {
-    this.widget.reloadData();
+    if (this.weatherWidget) {
+      this.weatherWidget.refreshData();
+    }
+
+    if (this.newsWidget) {
+      this.newsWidget.reloadNewsData();
+    }
+
+    // TODO: next widgets?
+    // if (this.newsWidget) {
+    //   this.newsWidget.reloadNewsData();
+    // }
   }
 }
