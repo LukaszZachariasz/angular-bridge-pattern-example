@@ -23,7 +23,7 @@ export class WidgetContainerComponent implements OnInit {
     //preloading something?
 
     if (this.weatherWidget) {
-      this.weatherWidget.preloadSomething;
+      this.weatherWidget.preloadSomething();
     }
   }
 
