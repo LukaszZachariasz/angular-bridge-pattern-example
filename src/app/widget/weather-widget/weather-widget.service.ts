@@ -20,7 +20,7 @@ export class WeatherWidgetService {
     tempUnit: TempUnitEnum.CELCIUS,
   });
 
-  public loadDataFromApi() {
+  public getCurrentTempFromSensor() {
     this.weatherDailyInfo$.next(null!);
     this.isWeatherLoading$.next(true);
 
