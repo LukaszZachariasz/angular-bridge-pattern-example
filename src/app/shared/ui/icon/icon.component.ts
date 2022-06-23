@@ -1,30 +1,36 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Attribute, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {IconName} from '@fortawesome/free-solid-svg-icons/';
 import {TitleCasePipe} from '@angular/common';
-import {faCircle} from '@fortawesome/free-solid-svg-icons/faCircle';
 import {IconDefinition} from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
-  styleUrls: ['./icon.component.css']
+  styleUrls: ['./icon.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IconComponent implements OnInit {
-  @Input() public iconName: IconName = 'circle'
-  @Input() public prefix = 'fa';
-  public icon: IconDefinition = faCircle
+  public icon: IconDefinition = null!;
+  private readonly DEFAULT_PREFIX = 'fa';
 
-  constructor(private titleCasePipe: TitleCasePipe) {
+  constructor(@Attribute('iconName') private readonly iconName: IconName,
+              @Attribute('prefix') private prefix: string,
+              private titleCasePipe: TitleCasePipe,
+              private cdRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
-    const importName = this.replaceAll(this.titleCasePipe.transform(this.replaceAll(this.iconName, '-', ' ')), ' ', '')
     import('@fortawesome/free-solid-svg-icons').then((i: any) => {
-      this.icon = i[ this.prefix + importName];
+      this.icon = i[this.prefix ?? this.DEFAULT_PREFIX + this.getImportName()];
+      this.cdRef.detectChanges();
     })
   }
 
-  replaceAll(str: string, find: string, replace: string): string {
+  private getImportName(): string {
+    return this.replaceAll(this.titleCasePipe.transform(this.replaceAll(this.iconName, '-', ' ')), ' ', '');
+  }
+
+  private replaceAll(str: string, find: string, replace: string): string {
     return str.replace(new RegExp(find, 'g'), replace);
   }
 }
