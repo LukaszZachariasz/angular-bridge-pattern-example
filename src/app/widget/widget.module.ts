@@ -1,11 +1,13 @@
 import {NgModule} from '@angular/core';
 import {WidgetContainerComponent} from './widget-container/widget-container.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NewsWidgetService } from './news-widget/news-widget.service';
-import { WeatherWidgetService } from './weather-widget/weather-widget.service';
-import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
-import { NewsWidgetComponent } from './news-widget/news-widget.component';
-import { CommonModule } from '@angular/common';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {NewsWidgetService} from './news-widget/news-widget.service';
+import {WeatherWidgetService} from './weather-widget/weather-widget.service';
+import {WeatherWidgetComponent} from './weather-widget/weather-widget.component';
+import {NewsWidgetComponent} from './news-widget/news-widget.component';
+import {CommonModule} from '@angular/common';
+import {AppStore} from '../store/app-store';
+import {SharedModule} from '../shared/shared.module';
 
 const COMPONENTS = [
   WeatherWidgetComponent,
@@ -16,7 +18,8 @@ const COMPONENTS = [
 @NgModule({
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SharedModule
   ],
   exports: [
     ...COMPONENTS
@@ -26,7 +29,8 @@ const COMPONENTS = [
   ],
   providers: [
     NewsWidgetService,
-    WeatherWidgetService
+    WeatherWidgetService,
+    AppStore
   ]
 })
 export class WidgetModule {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { faCloudSunRain } from '@fortawesome/free-solid-svg-icons';
 import { WeatherWidgetService } from './weather-widget.service';
+import {AppStore} from '../../store/app-store';
+import {dailyInfoSelector} from '../../store/state/weather/selectors/daily-info.selector';
 
 @Component({
   selector: 'app-weather-widget',
@@ -8,19 +9,17 @@ import { WeatherWidgetService } from './weather-widget.service';
   styleUrls: ['./weather-widget.component.css'],
 })
 export class WeatherWidgetComponent {
-  public faCloudSunRain = faCloudSunRain;
-
   public isWeatherLoading$ = this.weatherWidgetService.isWeatherLoading$;
-  public dailyWeatherInfo$ = this.weatherWidgetService.weatherDailyInfo$;
+  public dailyWeatherInfo$ = this.store.select(dailyInfoSelector());
 
-  constructor(private weatherWidgetService: WeatherWidgetService) {}
+  constructor(private weatherWidgetService: WeatherWidgetService,
+              private store: AppStore) {
+  }
 
   public preloadSomething(): void {
-    console.log('preloading');
   }
 
   public refreshData() {
-    const aaa = 'asda';
     this.weatherWidgetService.loadDataFromApi();
   }
 }

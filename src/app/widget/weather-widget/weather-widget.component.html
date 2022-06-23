@@ -1,12 +1,8 @@
 <div class="weather-widget-wrapper">
   <div *ngIf="dailyWeatherInfo$ | async as dailyWeatherInfo">
     <div class="weather-widget-content">
-      <fa-icon [icon]="faCloudSunRain" [size]="'4x'"></fa-icon>
+     <app-icon [iconName]="'address-book'"></app-icon>
       <strong>{{dailyWeatherInfo.avgTemp}} {{dailyWeatherInfo.tempUnit}}</strong>
     </div>
-  </div>
-
-  <div *ngIf="!(dailyWeatherInfo$ | async)">
-    <div class="weather-loader"></div>
   </div>
 </div>

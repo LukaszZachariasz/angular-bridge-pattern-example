@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, delay, EMPTY, map, merge, Observable, of, Subject } from 'rxjs';
-import { DailyNews } from '../news-widget/news-widget.service';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {setDailyInfoAction} from '../../store/state/weather/actions/set-daily-info';
+import {AppStore} from '../../store/app-store';
 
 export interface WeatherDailyInfo {
   avgTemp: number;
@@ -15,21 +16,19 @@ export enum TempUnitEnum {
 @Injectable()
 export class WeatherWidgetService {
   public isWeatherLoading$ = new BehaviorSubject<boolean>(false);
-  public weatherDailyInfo$ = new BehaviorSubject<WeatherDailyInfo>({
-    avgTemp: 23.2,
-    tempUnit: TempUnitEnum.CELCIUS,
-  });
+
+  constructor(private store: AppStore) {
+  }
 
   public loadDataFromApi() {
-    this.weatherDailyInfo$.next(null!);
     this.isWeatherLoading$.next(true);
 
-    setTimeout(() => {
-      this.isWeatherLoading$.next(false);
-      this.weatherDailyInfo$.next({
-        avgTemp: 23.2,
-        tempUnit: TempUnitEnum.CELCIUS,
-      });
-    }, 3000);
+
+    this.isWeatherLoading$.next(false);
+    this.store.do(setDailyInfoAction({
+      avgTemp: 23.2,
+      tempUnit: TempUnitEnum.CELCIUS
+    }))
+
   }
 }
