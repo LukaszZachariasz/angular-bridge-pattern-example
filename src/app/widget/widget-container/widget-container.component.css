@@ -23,11 +23,11 @@
   cursor: pointer;
 }
 
-fa-icon:hover {
+app-icon:hover {
   color: gray;
 }
 
-fa-icon {
+app-icon {
   color: rgb(0, 146, 73);
 }
 

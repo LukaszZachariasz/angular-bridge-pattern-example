@@ -1,7 +1,7 @@
 <div class="weather-widget-wrapper">
   <div *ngIf="dailyWeatherInfo$ | async as dailyWeatherInfo">
     <div class="weather-widget-content">
-     <app-icon iconName="address-book"></app-icon>
+      <app-icon name="address-book"></app-icon>
       <strong>{{dailyWeatherInfo.avgTemp}} {{dailyWeatherInfo.tempUnit}}</strong>
     </div>
   </div>

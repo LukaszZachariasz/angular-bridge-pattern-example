@@ -1,5 +1,4 @@
-import { Component, ContentChild, InjectionToken, Input, OnInit } from '@angular/core';
-import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
+import { Component, ContentChild, Input, OnInit } from '@angular/core';
 import { NewsWidgetComponent } from '../news-widget/news-widget.component';
 import { WeatherWidgetComponent } from '../weather-widget/weather-widget.component';
 
@@ -9,7 +8,6 @@ import { WeatherWidgetComponent } from '../weather-widget/weather-widget.compone
   styleUrls: ['./widget-container.component.css'],
 })
 export class WidgetContainerComponent implements OnInit {
-  public reloadIcon = faArrowCircleDown;
 
   @ContentChild(WeatherWidgetComponent)
   public weatherWidget!: WeatherWidgetComponent;
